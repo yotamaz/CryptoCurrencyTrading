@@ -59,11 +59,9 @@ class myElasticSearch:
             ervec = []
             if res["errors"]:
                 for doc in res["items"]:
-                    try:
-                        if doc[u'index'][u'status'] != 201:
-                            ervec.append("_push:{0} - {1}".format(doc[u'create'][u'error'][u'reason'],doc[u'create'][u'error'][u'caused_by'][u'reason']))
-                    except:
-                        pass
+                    if doc[u'index'][u'status'] != 201:
+                        ervec.append("_push:{0} - {1}".format(doc[u'index'][u'error'][u'reason'],
+                                                              doc[u'index'][u'error'][u'type']))
         except ElasticsearchException as es1:
             sys.exit("Push-{0}".format(es1.error))
         return ervec
