@@ -86,7 +86,7 @@ class Provider:
     def get_data(self):
         args = []
         for exg in self.exgs:
-            self.get_exchange_data(exg)
+            # self.get_exchange_data(exg)
             args.append((exg))
         pool = ThreadPool()
         mymap = pool.map_async(self.get_exchange_data, args)
