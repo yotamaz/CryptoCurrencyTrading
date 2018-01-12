@@ -11,4 +11,5 @@ if __name__ == '__main__':
         done = time.time()
         took = done - start
         eslog.linfo({"took": took, "m": "session end"})
+
         print("stop", "data")
