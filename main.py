@@ -9,7 +9,7 @@ if __name__ == '__main__':
         start = time.time()
         p.get_data()
         done = time.time()
-        took = done - startjn
+        took = done - start
         eslog.linfo({"took": took, "m": "session end"})
         print("asdasd")
         print("stop", "data")
